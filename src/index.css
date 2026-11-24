@@ -28,3 +28,452 @@ body {
   min-height: 100vh;
   width: 100%;
 }
+
+/* =================================
+   SIX FREQUENCY VISUAL SIGNATURES
+================================= */
+
+.signal-visual {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 01 — SOFTWARE: Moving code */
+
+.signature-code {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 245px;
+  color: #c6f432;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.signature-code span {
+  opacity: 0;
+  animation: codeAppear 2.8s ease infinite;
+}
+
+.signature-code span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.signature-code span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.signature-code span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes codeAppear {
+  0%, 15% { opacity: 0; transform: translateX(-12px); }
+  30%, 75% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(8px); }
+}
+
+/* 02 — WEB: Connected nodes */
+
+.signature-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.signature-nodes span {
+  width: 13px;
+  height: 13px;
+  border: 2px solid #c6f432;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(198, 244, 50, 0.3);
+  animation: nodePulse 1.5s ease-in-out infinite alternate;
+}
+
+.signature-nodes span:nth-child(2n) {
+  animation-delay: 0.3s;
+}
+
+.signature-nodes span:nth-child(3n) {
+  transform: translateY(-25px);
+}
+
+@keyframes nodePulse {
+  from { background: transparent; transform: scale(0.8); }
+  to { background: #c6f432; transform: scale(1.3); }
+}
+
+/* 03 — AI: Neural network */
+
+.signature-neural {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.signature-neural div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.signature-neural span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #c6f432;
+  box-shadow: 0 0 14px rgba(198, 244, 50, 0.6);
+  animation: neuralPulse 1.4s ease-in-out infinite alternate;
+}
+
+.signature-neural div:nth-child(2) span {
+  width: 16px;
+  height: 16px;
+}
+
+.signature-neural span:nth-child(2n) {
+  animation-delay: 0.3s;
+}
+
+@keyframes neuralPulse {
+  from { opacity: 0.35; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1.2); }
+}
+
+/* 04 — CYBERSECURITY: Shield */
+
+.signature-shield {
+  width: 80px;
+  height: 85px;
+  border: 2px solid #c6f432;
+  clip-path: polygon(50% 0%, 95% 18%, 88% 70%, 50% 100%, 12% 70%, 5% 18%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c6f432;
+  background: rgba(198, 244, 50, 0.08);
+  animation: shieldGlow 2s ease-in-out infinite alternate;
+}
+
+.signature-shield span {
+  font-size: 28px;
+}
+
+.signature-shield i {
+  font-size: 8px;
+  letter-spacing: 2px;
+  font-style: normal;
+}
+
+@keyframes shieldGlow {
+  from { filter: drop-shadow(0 0 2px #c6f432); }
+  to { filter: drop-shadow(0 0 12px #c6f432); }
+}
+
+/* 05 — CLOUD: Cloud signal */
+
+.signature-cloud {
+  text-align: center;
+  color: #c6f432;
+}
+
+.signature-cloud span {
+  display: block;
+  font-size: 65px;
+  line-height: 1;
+  animation: cloudFloat 2.5s ease-in-out infinite alternate;
+}
+
+.signature-cloud div {
+  font-size: 9px;
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+@keyframes cloudFloat {
+  from { transform: translateY(5px); }
+  to { transform: translateY(-5px); }
+}
+
+/* 06 — IOT: Connected signal */
+
+.signature-iot {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.signature-iot span {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #c6f432;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(198, 244, 50, 0.5);
+  animation: iotSignal 1.5s ease-in-out infinite;
+}
+
+.signature-iot span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.signature-iot span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.signature-iot span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.signature-iot span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes iotSignal {
+  0%, 100% { transform: scale(0.8); opacity: 0.4; }
+  50% { transform: scale(1.5); opacity: 1; background: #c6f432; }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .signature-code span,
+  .signature-nodes span,
+  .signature-neural span,
+  .signature-shield,
+  .signature-cloud span,
+  .signature-iot span {
+    animation: none !important;
+  }
+}
+
+/* =================================
+   CODE2CHILL — EVENTS SIGNAL HERO
+================================= */
+
+.events-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 390px;
+  padding: 105px 8% 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 78% 45%,
+      rgba(198, 244, 50, 0.075),
+      transparent 42%
+    ),
+    #0b0d0a;
+  border-bottom: 1px solid rgba(198, 244, 50, 0.12);
+}
+
+.events-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(198, 244, 50, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 244, 50, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to right, black, transparent 90%);
+  animation: eventsGridDrift 18s linear infinite;
+}
+
+.events-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #c6f432,
+    transparent
+  );
+  box-shadow: 0 0 18px rgba(198, 244, 50, 0.7);
+  animation: eventsScan 7s ease-in-out infinite;
+}
+
+.events-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.events-hero-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: #c6f432;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  animation: eventsReveal 0.7s ease both;
+}
+
+.events-signal-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #c6f432;
+  box-shadow: 0 0 12px rgba(198, 244, 50, 0.8);
+  animation: eventsDotPulse 1.8s ease-in-out infinite;
+}
+
+.events-hero-title {
+  color: #f4f5f0;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -2.5px;
+  animation: eventsReveal 0.8s 0.12s ease both;
+}
+
+.events-hero-title span {
+  display: block;
+  color: #c6f432;
+}
+
+.events-hero-description {
+  max-width: 510px;
+  margin-top: 20px;
+  color: #a9ada3;
+  font-size: 14px;
+  line-height: 1.8;
+  animation: eventsReveal 0.8s 0.25s ease both;
+}
+
+.events-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin-top: 38px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  animation: eventsReveal 0.8s 0.38s ease both;
+}
+
+.events-hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.events-hero-meta-value {
+  color: #f4f5f0;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.events-hero-meta-label {
+  color: #858a7e;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+
+@keyframes eventsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes eventsGridDrift {
+  from { background-position: 0 0; }
+  to { background-position: 48px 48px; }
+}
+
+@keyframes eventsScan {
+  0% { left: -30%; opacity: 0; }
+  15% { opacity: 1; }
+  75% { opacity: 0.8; }
+  100% { left: 110%; opacity: 0; }
+}
+
+@keyframes eventsDotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Events hero — responsive */
+
+@media (max-width: 768px) {
+  .events-hero {
+    min-height: 350px;
+    padding: 85px 6% 55px;
+  }
+
+  .events-hero-title {
+    font-size: clamp(38px, 9vw, 58px);
+    letter-spacing: -1.5px;
+  }
+
+  .events-hero-description {
+    font-size: 13px;
+  }
+
+  .events-hero-meta {
+    gap: 24px;
+  }
+
+  .events-hero-meta-value {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .events-hero {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .events-hero-meta {
+    gap: 17px;
+  }
+
+  .events-hero-meta-value {
+    font-size: 18px;
+  }
+
+  .events-hero-meta-label {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .events-hero::before,
+  .events-hero::after,
+  .events-hero-label,
+  .events-hero-title,
+  .events-hero-description,
+  .events-hero-meta,
+  .events-signal-dot {
+    animation: none !important;
+  }
+}
+
